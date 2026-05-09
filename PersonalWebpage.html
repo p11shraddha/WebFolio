@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>WebFolio Landing Page</title>
+
+<style>
+body { font-family: Arial, sans-serif; margin: 0; }
+
+/* HEADER */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #1fb4b7;
+  color: white;
+  padding: 15px 20px;
+  position: relative;
+}
+.logo { font-size: 22px; font-weight: bold; }
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+nav ul li a { color: white; text-decoration: none; }
+
+/* Hamburger */
+.hamburger {
+  display: none;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+/* CTA */
+.cta-btn {
+  background: #0D5354;
+  border: none;
+  padding: 10px 20px;
+  color: white;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+/* HERO */
+.hero {
+  height: 400px;
+  background-image: url(images/bg3.jpg);
+  /* background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('hero-image.jpg'); */
+  background-size: cover;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+.hero h1 { font-size: 40px; }
+.hero p { font-size: 18px; margin: 10px 0; }
+
+/* FEATURES */
+.features {
+  padding: 40px;
+  text-align: center;
+}
+.features h2 { margin-bottom: 20px; color:#1fb4b7;}
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+}
+.feature-item {
+  background: #f4f4f4;
+  padding: 20px;
+  border-radius: 8px;
+  transition: transform 0.3s;
+}
+.feature-item:hover { transform: translateY(-5px); }
+
+/* TESTIMONIALS */
+.testimonials {
+  padding: 40px;
+ /* background: #f9f9f9; */
+  text-align: center;
+}
+.carousel {
+  position: relative;
+  max-width: 600px;
+  margin: auto;
+}
+.testimonial {
+  display: none;
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+.testimonial.active { display: block; }
+
+.testimonials {
+  text-align: center;
+  position: relative;
+  max-width: 500px;
+  margin: auto;
+}
+
+.testimonials h2 { color:#1fb4b7; }
+
+.carousel {
+  position: relative;
+  overflow: hidden;
+}
+
+.testimonial {
+  display: none;
+  font-size: 18px;
+  padding: 20px;
+}
+
+.testimonial.active {
+  display: block;
+}
+
+/* Buttons */
+button.prev,
+button.next {
+  position: absolute;
+  top: 62%;
+  transform: translateY(-50%);
+  background: #61C7C9;
+  color: #fff;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+}
+
+button.prev {
+  left: 0;
+}
+
+button.next {
+  right: 0;
+}
+
+/* FOOTER */
+footer {
+  background: #1F5A5C;
+  color: white;
+  text-align: center;
+  padding: 20px;
+}
+
+/* MOBILE */
+@media(max-width:768px) {
+  nav ul {
+    display: none;
+    flex-direction: column;
+    background: #1F5A5C;
+    position: absolute;
+    top: 60px;
+    right: 0;
+    width: 200px;
+    padding: 10px;
+  }
+  nav ul.show { display: flex; }
+  .hamburger { display: block; }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="logo">WebFolio</div>
+  <div class="hamburger" onclick="toggleMenu()">☰</div>
+  <nav>
+    <ul id="menu">
+      <li><a href="#features">Features</a></li>
+      <li><a href="#testimonials">Testimonials</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+  <button class="cta-btn">Get Started</button>
+</header>
+
+<section class="hero">
+  <h1>Grow Your Business</h1>
+  <p>Powerful tools to scale faster 🚀</p>
+  <button class="cta-btn">Start Now</button>
+</section>
+
+<section id="features" class="features">
+  <h2>Our Features</h2>
+  <div class="feature-grid">
+    <div class="feature-item">⚡ Fast Performance</div>
+    <div class="feature-item">🔒 Secure Platform</div>
+    <div class="feature-item">📊 Analytics Dashboard</div>
+    <div class="feature-item">☁️ Cloud Integration</div>
+    <div class="feature-item">🤝 24/7 Support</div>
+    <div class="feature-item">💡 Smart Automation</div>
+	<div class="feature-item">🔧 Reliable Maintenance</div>
+    <div class="feature-item">💭 Quick Issue Resolution</div>
+  </div>
+</section>
+
+
+<section id="testimonials" class="testimonials">
+  <h2>What Clients Say</h2>
+
+  <div class="carousel">
+    <div class="testimonial active">
+      <p>"Amazing experience!"</p>
+      <cite>- John</cite>
+    </div>
+    <div class="testimonial">
+      <p>"Helped my business grow!"</p>
+      <cite>- Sarah</cite>
+    </div>
+    <div class="testimonial">
+      <p>"Highly recommend it."</p>
+      <cite>- Amit</cite>
+    </div>
+  </div>
+
+  <!-- Navigation Buttons -->
+  <button class="prev"> &lt;</button>
+  <button class="next">&gt;</button>
+</section>
+
+<footer id="contact">
+  <p>Email: example@email.com</p>
+</footer>
+
+<script>
+function toggleMenu() {
+  document.getElementById("menu").classList.toggle("show");
+}
+
+// Carousel
+<!-- let index = 0; -->
+<!-- const testimonials = document.querySelectorAll('.testimonial'); -->
+
+<!-- function showSlide() { -->
+  <!-- testimonials.forEach(t => t.classList.remove('active')); -->
+  <!-- index = (index + 1) % testimonials.length; -->
+  <!-- testimonials[index].classList.add('active'); -->
+<!-- } -->
+<!-- setInterval(showSlide, 3000); -->
+
+
+
+</script>
+
+<script>
+  const testimonials = document.querySelectorAll(".testimonial");
+  const prevBtn = document.querySelector(".prev");
+  const nextBtn = document.querySelector(".next");
+
+  let index = 0;
+
+  function showSlide(i) {
+    testimonials.forEach((el) => el.classList.remove("active"));
+    testimonials[i].classList.add("active");
+  }
+
+  nextBtn.addEventListener("click", () => {
+    index = (index + 1) % testimonials.length;
+    showSlide(index);
+  });
+
+  prevBtn.addEventListener("click", () => {
+    index = (index - 1 + testimonials.length) % testimonials.length;
+    showSlide(index);
+  });
+
+  // Optional: Auto-slide every 3 seconds
+  setInterval(() => {
+    index = (index + 1) % testimonials.length;
+    showSlide(index);
+  }, 7000);
+</script>
+
+</body>
+</html>
